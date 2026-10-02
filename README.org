@@ -1,0 +1,2 @@
+* flowgorithm-docker
+Image zum Ausführen von Flowgorithm in einem Docker-Container.

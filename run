@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+VNC="http://localhost:8080/"
+
+(
+    curl -so /dev/null --retry-all-errors --retry 10 --retry-delay 1 "$VNC" && \
+        echo "NoVNC client available at http://localhost:8080"; xdg-open "$VNC"
+) &
+
+docker run \
+    --rm \
+    --name flowgorithm-docker \
+    -itv ~/Documents:/home/flowgorithm/Documents \
+    -p 8080:8080 \
+    flowgorithm-docker
+
