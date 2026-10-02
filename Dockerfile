@@ -1,5 +1,7 @@
 FROM debian:trixie-20260918
 
+LABEL org.opencontainers.image.source="https://github.com/fhswf/flowgorithm-docker"
+
 ENV DISPLAY=:0.0
 ENV DISPLAY_WIDTH=1920
 ENV DISPLAY_HEIGHT=1080
