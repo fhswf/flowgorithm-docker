@@ -36,6 +36,7 @@ RUN mkdir Documents
 VOLUME Documents
 
 COPY ./image_files/autostart .config/openbox/
+COPY ./image_files/rc.xml .config/openbox
 
 RUN xvfb-run winetricks -q dotnet48
 
