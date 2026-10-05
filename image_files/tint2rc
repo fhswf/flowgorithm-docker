@@ -1,0 +1,7 @@
+panel_items = L:T
+
+startup_notifications = 1
+launcher_tooltip = 1
+launcher_item_app = wine-Flowgorithm.desktop
+
+separator_style = line

@@ -2,5 +2,6 @@
 Exec=wine 'C:\\Program Files\\Flowgorithm.exe'
 Name=Flowgorithm
 Type=Application
+Icon=flowgorithm
 Terminal=false
 Categories=Development;

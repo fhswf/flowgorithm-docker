@@ -9,9 +9,11 @@ ENV DISPLAY_HEIGHT=1080
 RUN echo "deb http://deb.debian.org/debian trixie contrib non-free" >> /etc/apt/sources.list && \
     export DEBIAN_FRONTEND=noninteractive && \
     dpkg --add-architecture i386 && apt update && apt install -y \
+    icoutils \
     novnc \
     openbox \
     supervisor \
+    tint2 \
     websockify \
     wget \
     wine \
@@ -20,8 +22,12 @@ RUN echo "deb http://deb.debian.org/debian trixie contrib non-free" >> /etc/apt/
     xvfb \
     x11vnc
 
-COPY ./image_files/supervisord.conf /etc/supervisord.conf
+COPY ./image_files/supervisord.conf /etc/
 COPY ./image_files/wine-Flowgorithm.desktop /usr/share/applications/
+
+RUN wget http://flowgorithm.org/flowgorithm.ico && \
+    icotool -x -o /usr/share/icons/hicolor/256x256/apps/flowgorithm.png flowgorithm.ico && \
+    rm flowgorithm.ico
 
 RUN ln -s /usr/share/novnc/vnc.html /usr/share/novnc/index.html
 
@@ -36,7 +42,8 @@ RUN mkdir Documents
 VOLUME Documents
 
 COPY ./image_files/autostart .config/openbox/
-COPY ./image_files/rc.xml .config/openbox
+COPY ./image_files/rc.xml .config/openbox/
+COPY ./image_files/tint2rc .config/tint2/
 
 RUN xvfb-run winetricks -q dotnet48
 
