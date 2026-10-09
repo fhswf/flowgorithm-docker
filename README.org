@@ -1,2 +1,22 @@
 * flowgorithm-docker
 Image zum Ausführen von Flowgorithm in einem Docker-Container.
+
+** Verwendung
+Auf Linux-Systemen können die enthaltenen Bash-Skripte zum Starten eines Containers genutzt werden.
+1. Image erstellen (einmalig)
+   #+begin_src bash
+./build
+   #+end_src
+2. Container starten
+   #+begin_src bash
+./run
+   #+end_src
+Nach dem Start ist unter [[http://localhost:8080]] ein VNC-Client abrufbar, über den Flowgorithm bedient werden kann.
+*** Speichern von Programmen
+Bei der Nutzung des =run=-Skripts wird standardmäßig das /Documents/-Verzeichnis des aktuellen Benutzers an das gleichnamige Verzeichnis im Container gebunden.
+Somit sind alle Programme, die in Flowgorithm unter /Documents/ gespeichert werden, auf dem lokalen Dateisystem verfügbar.
+
+Falls ein anderes (lokales) Verzeichnis genutzt werden soll, kann dies dem Skript als Argument übergeben werden:
+#+begin_src bash
+./run /path/to/my/flowcharts
+#+end_src
