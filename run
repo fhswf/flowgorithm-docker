@@ -1,5 +1,11 @@
 #!/usr/bin/bash
 
+if [[ -d $1 ]]; then
+    FLOWCHART_DIR=$1
+else
+    FLOWCHART_DIR=$HOME/Documents
+fi
+
 VNC="http://localhost:8080/"
 
 (
@@ -10,7 +16,6 @@ VNC="http://localhost:8080/"
 docker run \
     --rm \
     --name flowgorithm-docker \
-    -itv ~/Documents:/home/flowgorithm/Documents \
+    -itv "$FLOWCHART_DIR:/home/flowgorithm/Documents" \
     -p 8080:8080 \
     flowgorithm-docker
-
